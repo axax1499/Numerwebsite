@@ -122,7 +122,7 @@ class Onepoint extends Component {
                             background: "#6c757d"
                         }}
                     >
-                        <h2 style={{ marginLeft: "40%" }} >f(x)</h2><input class="form-control form-control-lg" type="text" name="fx"></input>
+                         <h2 style={{ marginLeft: "160px" }}> function </h2> <input class="form-control form-control-lg" type="text" name="fx"></input>
                         <h2 style={{ marginLeft: "40%" }} >X<sub>0</sub></h2><input class="form-control form-control-lg" type="text" name="x0"></input>
                         <br /><br />
                         <Button id="submit_button" onClick={
@@ -145,7 +145,7 @@ class Onepoint extends Component {
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <Tooltip />
                                 <Legend verticalAlign="top" height={36} />
-                                <Line name="error" type="monotone" dataKey="error" stroke="#8884d8" />
+                                <Line name="error" type="monotone" dataKey="error" stroke="blue" />
                             </LineChart>
                         </Card>
                     }
@@ -154,7 +154,7 @@ class Onepoint extends Component {
                         <Card
                             style={{ borderRadius: "10px" }}
                         >
-                            <Table columns={columns} dataSource={dataInTable} bodyStyle={{ fontWeight: "bold", fontSize: "18px", color: "black" }}></Table>
+                            <Table columns={columns} dataSource={dataInTable} bodyStyle={{ fontWeight: "bold", fontSize: "18px", color: "blue" }}></Table>
                         </Card>
                     }
                     <br /><br />

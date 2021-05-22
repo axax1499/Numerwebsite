@@ -6,7 +6,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'r
 import axios from 'axios';
 
 
-const { Content } = Layout;
+// const { Content } = Layout;
 const InputStyle = {
     background: "white",
     color: "#ffa31a",
@@ -61,7 +61,7 @@ class Bisec extends Component {
         this.bisection = this.bisection.bind(this);
     }
 
-
+    
 
     bisection(xl, xr) {
         fx = this.state.fx;
@@ -74,6 +74,9 @@ class Bisec extends Component {
         data['xr'] = []
         data['x'] = []
         data['error'] = []
+        
+        
+
         if (this.func(xl) < this.func(xr)) {
             increaseFunction = true;
         }
@@ -97,28 +100,37 @@ class Bisec extends Component {
                 else {
                     xl = xm;
                 }
+          
             }
+            
             data['xl'][n] = xl;
             data['xr'][n] = xr;
             data['x'][n] = xm.toFixed(8);
             data['error'][n] = Math.abs(sum).toFixed(8);
             n++;
+            
+            
+            
         } while (Math.abs(sum) > 0.000001);
         this.createTable(data['xl'], data['xr'], data['x'], data['error']);
         this.setState({
             showOutputCard: true,
             showGraph: true
         })
+        
     }
 
     func(X) {
         var expr = compile(this.state.fx);
         let scope = { x: parseFloat(X) };
         return expr.eval(scope);
+
     }
+
     error(xnew, xold) {
         return Math.abs((xnew - xold) / xnew);
     }
+
     createTable(xl, xr, x, error) {
         dataInTable = []
         for (var i = 0; i < xl.length; i++) {
@@ -128,9 +140,12 @@ class Bisec extends Component {
                 xr: xr[i],
                 x: x[i],
                 error: error[i]
+
+                
             });
         }
     }
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -140,7 +155,7 @@ class Bisec extends Component {
     render() {
         return (
 
-
+            
             <div >
                 <div className="bisecpage"> <p>Bisection</p></div>
                 <div
@@ -160,15 +175,15 @@ class Bisec extends Component {
 
                         }}
                     >
-                        <h2 style={{ marginLeft: "200px" }}> f(x) </h2> <input class="form-control form-control-lg" type="text" name="fx"></input>
+                        <h2 style={{ marginLeft: "160px" }}> function </h2> <input class="form-control form-control-lg" type="text" name="fx"></input>
                         <h2 style={{ marginLeft: "200px" }}>X<sub>L</sub></h2> <input class="form-control form-control-lg" type="text" name="xl"></input>
                         <h2  style={{ marginLeft: "200px" }}>X<sub>R</sub></h2>  <input class="form-control form-control-lg" type="text" name="xr" />
                         <br /><br />
                         <Button id="submit_button" onClick={
                             () => this.bisection(parseFloat(this.state.xl), parseFloat(this.state.xr))
                         }
-                            style={{ background: "#000000", color: "white", fontSize: "20px" }}>SUBMITH <br></br></Button>
-
+                            style={{ background: "#000000", color: "white", fontSize: "20px" }}> SUBMITH <br></br></Button>
+                        
 
                     </div>
 
@@ -184,7 +199,7 @@ class Bisec extends Component {
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <Tooltip />
                                 <Legend verticalAlign="top" height={36} />
-                                <Line name="error" type="monotone" dataKey="error" stroke="#8884d8" />
+                                <Line name="error" type="monotone" dataKey="error" stroke="blue" />
                             </LineChart>
                         </Card>
                     }
@@ -192,9 +207,9 @@ class Bisec extends Component {
                     {this.state.showOutputCard &&
 
                         <Card
-                            style={{ borderRadius: "10px" }}
+                            style={{ borderRadius: "10px"}}
                         >
-                            <Table columns={columns} dataSource={dataInTable} bodyStyle={{ fontWeight: "bold", fontSize: "18px", color: "black" }}></Table>
+                            <Table columns={columns} dataSource={dataInTable} bodyStyle={{fontWeight: "bold",  fontSize: "18px", color: "blue" }}></Table>
                         </Card>
                     }
                     <br /><br />
@@ -202,5 +217,6 @@ class Bisec extends Component {
             </div>
         )
     }
+   
 }
 export default Bisec;

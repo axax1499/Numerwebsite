@@ -154,7 +154,7 @@ class False_position extends Component {
                             background: "#6c757d"
                         }}
                     >
-                        <h2 style={{ marginLeft: "200px" }}>f(x)</h2><input class="form-control form-control-lg" type="text" name="fx"></input>
+                         <h2 style={{ marginLeft: "160px" }}> function </h2> <input class="form-control form-control-lg" type="text" name="fx"></input>
                         <h2 style={{ marginLeft: "200px" }}>X<sub>L</sub></h2><input class="form-control form-control-lg" type="text" name="xl"></input>
                         <h2 style={{ marginLeft: "200px" }}>X<sub>R</sub></h2><input class="form-control form-control-lg" type="text" name="xr" />
                         <br /><br />
@@ -177,7 +177,7 @@ class False_position extends Component {
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <Tooltip />
                                 <Legend verticalAlign="top" height={36} />
-                                <Line name="error" type="monotone" dataKey="error" stroke="#8884d8" />
+                                <Line name="error" type="monotone" dataKey="error" stroke="blue" />
                             </LineChart>
                         </Card>
                     }
@@ -188,7 +188,7 @@ class False_position extends Component {
                             bordered={true}
                             style={{ borderRadius: "10px" }}
                         >
-                            <Table columns={columns} bordered={true} dataSource={dataInTable} bodyStyle={{ fontWeight: "bold", fontSize: "18px", color: "black" }}
+                            <Table columns={columns} bordered={true} dataSource={dataInTable} bodyStyle={{ fontWeight: "bold", fontSize: "18px", color: "blue" }}
                             ></Table>
                         </Card>
                     }

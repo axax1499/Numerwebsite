@@ -62,9 +62,10 @@
 }
 
 .Navtop{
-  font-size: large;
+  font-size: larger;
   font-weight: bolder;
-  color: aliceblue;
+  color: #ffffff;
+
 }
 
 .navbar-static-top{
